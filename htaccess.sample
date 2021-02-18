@@ -6,6 +6,11 @@
 RewriteEngine On
 RewriteBase /
 RewriteRule ^index\.php$ - [L]
+RewriteRule ^/test/.*$ - [L]
+
+RewriteCond %{HTTP:CloudFrontKey} write.revilog.com
+RewriteRule ^/wordpress/(.*)$ /wordpress-develop/$1 [L]
+
 RewriteRule ^/wordpress/.*$ - [L]
 RewriteRule ^/wordpress-develop/.*$ - [L]
 
