@@ -1,0 +1,29 @@
+
+#SITEGUARD_PLUGIN_SETTINGS_START
+#SITEGUARD_PLUGIN_SETTINGS_END
+# BEGIN WordPress
+
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteRule ^/wordpress/.*$ - [L]
+RewriteRule ^/wordpress-develop/.*$ - [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{HTTP:CloudFrontKey} write.revilog.com
+RewriteRule . /wordpress-develop/index.php [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /wordpress/index.php [L]
+
+RewriteCond $/wordpress/%{REQUEST_FILENAME} -f
+RewriteRule %{REQUEST_FILENAME} /wordpress/%{REQUEST_FILENAME} [L]
+
+
+
+# END WordPress
+
+# BEGIN WordPress
+# END WordPress
+
